@@ -1,13 +1,23 @@
-import classes from "./CardBottom.module.css";
 import Icon from "./Icon";
 import Tag from "./Tag";
 
 const CardBottom = (props) => {
   let fam = props.famous.split(',');
+
+  let flat = props.offer.slice(0,4);
+  let price = props.offer.slice(7,12);
+  let line = props.offer.slice(12,24);
+  let aprice = props.offer.slice(26,30);
+  let last = props.offer.slice(30,51);
+  let login = props.offer.slice(51);
+
   let first = fam[0].slice(0,6);
   let second = fam[0].slice(6);
   let third = fam[1].slice(0,6);
   let fourth = fam[1].slice(6);
+
+  let len = props.ratings;
+
   return (
     <div style={{ display: "flex" }}>
       <div style={{ height: "calc(54vh - 33vh)" }}>
@@ -85,13 +95,13 @@ const CardBottom = (props) => {
               paddingTop: "9px",
             }}
           >
-            Flat{" "}
+            {flat}{" "}
             <span style={{ fontWeight: "500" }}>
               Rs
-              <span style={{ color: "#0D98BA" }}>2,000</span>
-              off + upto Rs <span style={{ color: "#0D98BA" }}>500</span>{" "}
-              wallet! to avail...{" "}
-              <span style={{ color: "#0D98BA" }}>LOGIN</span>
+              <span style={{ color: "#0D98BA" }}>{price}</span>
+              {line} Rs<span style={{ color: "#0D98BA" }}>{aprice}</span>{" "}
+              {last}
+              <span style={{ color: "#0D98BA" }}>{login}</span>
             </span>
           </p>
         </div>

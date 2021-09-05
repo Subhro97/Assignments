@@ -53,6 +53,7 @@ const Card = (props) => {
           nfees={props.data.discounted_fees}
           semester={props.data.fees_cycle}
           amenties={props.data.amenties}
+          offer={props.data.offertext}
         />
       </div>
     </div>

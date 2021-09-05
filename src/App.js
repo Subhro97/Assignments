@@ -39,6 +39,7 @@ function App() {
   };
   return (
     <>
+    <div id='reference' style={{overflow:'hidden'}}/>
       <div
         style={{
           display: "flex",
@@ -53,6 +54,7 @@ function App() {
               next={fetchMoreData}
               hasMore={data.hasMore}
               loader={<h4>Loading...</h4>}
+              style={{overflow:'hidden'}}
             >
               {data.colleges.map((item, idx) => {
                 if (idx % 2 === 0) {
@@ -80,7 +82,7 @@ function App() {
               dataLength={length}
               next={fetchMoreData}
               hasMore={data.hasMore}
-              loader={<h4>Loading...</h4>}
+              style={{overflow:'hidden'}}
             >
               {data.colleges.map((item, idx) => {
                 if (idx % 2 === 1) {
