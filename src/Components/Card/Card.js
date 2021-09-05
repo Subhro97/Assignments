@@ -6,6 +6,7 @@ import Promote from "./Promote";
 
 const Card = (props) => {
   let name = props.data.college_name.split("-")[0];
+  console.log("hi")
   return (
     <div>
       {props.data.promoted ? (
