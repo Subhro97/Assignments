@@ -1,6 +1,6 @@
 import classes from "./CardTop.module.css";
 
-const CardTop = () => {
+const CardTop = (props) => {
   return (
     <div className={classes.image}>
       <div className={classes.rating}>
@@ -22,7 +22,7 @@ const CardTop = () => {
             /5
           </div>
         </div>
-        <div style={{ margin: "auto", marginTop: "-2px" }}>Very Good</div>
+        <div style={{ margin: "auto", marginTop: "-2px" }}>{props.remark}</div>
       </div>
       <div
         style={{
@@ -34,18 +34,18 @@ const CardTop = () => {
         }}
       >
         <div style={{position:'relative', display:'flex', gap:'0.5rem', top:'-3.5rem'}}>
-          <div className={classes.sub_desc}>Best college 2018</div>
-          <div className={classes.sub_desc}>2kms away</div>
+          <div className={classes.sub_desc}>{props.tags[0]}</div>
+          <div className={classes.sub_desc}>{props.tags[1]}</div>
           <div
             style={{
               color: "white",
               margin: "auto",
               fontSize: "0.8375rem",
               boxSizing: "border-box",
-              paddingLeft: "10rem",
+              paddingLeft: "9.5rem",
             }}
           >
-            #7 in 260 colleges in north campus
+            {`#${props.rank}`}
           </div>
         </div>
       </div>

@@ -2,7 +2,12 @@ import classes from "./CardBottom.module.css";
 import Icon from "./Icon";
 import Tag from "./Tag";
 
-const CardBottom = () => {
+const CardBottom = (props) => {
+  let fam = props.famous.split(',');
+  let first = fam[0].slice(0,6);
+  let second = fam[0].slice(6);
+  let third = fam[1].slice(0,6);
+  let fourth = fam[1].slice(6);
   return (
     <div style={{ display: "flex" }}>
       <div style={{ height: "calc(54vh - 33vh)" }}>
@@ -14,19 +19,19 @@ const CardBottom = () => {
               margin: "10px 8px 8px 10px ",
             }}
           >
-            Hansraj College Delhi University
+            {props.name}
           </p>
           <div style={{ display: "flex", gap: "0.3rem", marginTop: "13px" }}>
-            <Icon />
-            <Icon />
-            <Icon />
-            <Icon />
-            <Icon />
+            <Icon value='true'/>
+            <Icon value='true'/>
+            <Icon value='true'/>
+            <Icon value='true'/>
+            <Icon value='false'/>
           </div>
         </div>
         <div style={{ display: "flex" }}>
           <p style={{ margin: "-2px 0px 0px 11px", fontSize: "0.8375rem" }}>
-            Near Vishwavidyalya Metro Station
+            {props.location[0]}
           </p>
           <hr
             style={{
@@ -43,7 +48,7 @@ const CardBottom = () => {
               fontSize: "0.8375rem",
             }}
           >
-            2 Kms away from bus stand
+            {props.location[1]}
           </p>
         </div>
         <div style={{ margin: "-8px 0px 0px 11px" }}>
@@ -51,11 +56,11 @@ const CardBottom = () => {
             <span style={{ color: "#17B169", fontWeight: "500" }}>
               93% Match :{" "}
             </span>
-            <span style={{ fontWeight: "bold" }}>2.5kms</span>
-            <span style={{ color: "#898989" }}> from GTB Nagar</span>
+            <span style={{ fontWeight: "bold" }}>{first}</span>
+            <span style={{ color: "#898989" }}>{second}</span>
             <span style={{ color: "#17B169", fontWeight: "500" }}>,</span>
-            <span style={{ fontWeight: "bold" }}> 7 Kms</span>
-            <span style={{ color: "#898989" }}> from Rajiv Chowk</span>
+            <span style={{ fontWeight: "bold" }}>{third}</span>
+            <span style={{ color: "#898989" }}>{fourth}</span>
           </p>
         </div>
         <div
@@ -95,13 +100,13 @@ const CardBottom = () => {
         <div style={{ display: "flex", paddingLeft: "9rem" }}>
           <span
             style={{
-              fontSize: "0.7375rem",
+              fontSize: "0.8375rem",
               color: "#898989",
               textDecoration: "line-through",
-              paddingTop: "1em",
+              paddingTop: "0.9em",
             }}
           >
-            ₹6,8756
+            {`₹${props.ofees}`}
           </span>
           <Tag />
           <div style={{position:'relative', top:'0.35rem', left:'-1.9rem'}}>
@@ -118,7 +123,7 @@ const CardBottom = () => {
               fontSize: "0.7735rem",
             }}
           >
-            20
+            {props.discount}
           </div>
         </div>
         <div style={{ position: "relative", top: "-13px" }}>
@@ -130,7 +135,7 @@ const CardBottom = () => {
               paddingLeft: "7.5rem",
             }}
           >
-            ₹5,768
+            {`₹${props.nfees}`}
           </span>
           <span
             style={{
@@ -140,7 +145,7 @@ const CardBottom = () => {
               paddingLeft: "5.6rem",
             }}
           >
-            Per Semester(3 months)
+            {props.semester}
           </span>
         </div>
         <div
@@ -160,7 +165,7 @@ const CardBottom = () => {
               marginRight: "6px",
             }}
           >
-            Free Cancellation
+            {props.amenties[0]}
           </div>
           <div style={{ position: "relative", top: "-4px", left: "2px" }}>
             <svg height="5" width="5">
@@ -175,7 +180,7 @@ const CardBottom = () => {
               marginLeft: "6px",
             }}
           >
-            Free Wi-Fi
+            {props.amenties[1]}
           </div>
         </div>
       </div>
